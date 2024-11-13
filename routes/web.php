@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    Route::get('/book', [BookController::class, 'index'])->name('book.index');
+    Route::get('/book', [BookController::class, 'index'])->name('book');
 });
 
 Route::group(['middleware' => ['role:pustakawan']], function () {
