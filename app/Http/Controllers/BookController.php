@@ -17,4 +17,21 @@ class BookController extends Controller
         $data ['bookshelves'] = Bookshelf::get();
         return view('books.create', $data);
     }
+
+    public function store(Request $request){
+       $book = Book::create([
+            'title'=> $request->title,
+            'author'=> $request->author,
+            'year'=> $request->year,
+            'publisher'=> $request->publisher,
+            'city'=> $request->city,
+            'cover'=> $request->cover,
+            'bookshelf_id' => $request->bookshelf_id
+       ]);
+       $notification = array(
+        'message' => 'data buku berhasil dihapus',
+        'alert-type' => 'berhasil'
+       );
+       return redirect()->route('book')->with($notification);
+    }
 }
