@@ -52,7 +52,7 @@
                                     @if (old('bookshelf_id', $book->bookshelf_id) == $value->id)
                                         <option value="{{ $key }}" selected>{{ $value->code.'-'.$value->name }}</option>
                                     @else
-                                        <option value="{{ $key }}" selected>{{ $value->code.'-'.$value->name }}</option>
+                                        <option value="{{ $key }}">{{ $value->code.'-'.$value->name }}</option>
                                     @endif
                                 @endforeach
                             </x-select-input>
