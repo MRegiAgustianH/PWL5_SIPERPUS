@@ -87,6 +87,18 @@ class BookController extends Controller
         );
         return redirect()->route('book')->with($notification);
     }
+    public function destroy(string $id){
+
+    $book = Book::findOrFail($id);
+    Storage::delete('public/cover_buku'.$book->cover);
+    $book->delete();
+
+    $notification = array(
+        'massage' => 'Data Buku Berhasil Di Hapus',
+        'allert-type' => 'success'
+    );
+    return redirect()->route('book')->with($notification);
+    }
 
      // $Book::create([
         //     'title' => $request->title,
